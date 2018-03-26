@@ -1,0 +1,50 @@
+#Catastrophe
+type: area
+requirement: 6
+cost: 15000
+reward: Door to Tomorrow
+amount: 99
+
+#Earth Eater
+type: area
+requirement: 2
+cost: 15000
+reward: Three Stars
+amount: 60
+
+#Greater Sphere
+type: species
+requirement: 2
+cost: 15000
+reward: Supreme Gem
+amount: 60
+
+#Neslug
+type: area
+requirement: 13
+cost: 15000
+reward: Winning Formula
+amount: 99
+
+#Shinryu
+/ Takes 2 of each underwater fiend in Mt. Gagazet
+/ Achelouses, Maelspikes, and Splashers
+type: underwater
+requirement: 2
+cost: 15000
+reward: Megalixir
+amount: 30
+
+#Th'uban
+type: species
+requirement: 6
+cost: 15000
+reward: Gambler's Spirit
+amount: 99
+
+#Ultima Buster
+type: all
+requirement: 5
+cost: 15000
+reward: Dark Matter
+amount: 99

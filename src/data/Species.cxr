@@ -1,0 +1,97 @@
+#Fenrir
+type: Lupine
+requirement: 3
+cost: 8000
+reward: Chocobo Feather
+amount: 99
+
+#Ornitholestes
+type: Reptile
+requirement: 3
+cost: 8000
+reward: Stamina Spring
+amount: 99
+
+#Pteryx
+type: Bird
+requirement: 4
+cost: 8000
+reward: Mega Phoenix
+amount: 99
+
+#Hornet
+type: Wasp
+requirement: 4
+cost: 8000
+reward: Mana Tonic
+amount: 60
+
+#Vidatu
+type: Imp
+requirement: 4
+cost: 8000
+reward: Mana Spring
+amount: 99
+
+#One-Eye
+type: Evil Eye
+requirement: 4
+cost: 8000
+reward: Stamina Tablet
+amount: 60
+
+#Jumbo Flan
+type: Flan
+requirement: 3
+cost: 8000
+reward: Twin Stars
+amount: 60
+
+#Nega Elemental
+type: Elemental
+requirement: 3
+cost: 8000
+reward: Star Curtain
+amount: 99
+
+#Tanket
+type: Helm
+requirement: 3
+cost: 8000
+reward: Gold Hourglass
+amount: 99
+
+#Fafnir
+type: Drake
+requirement: 4
+cost: 8000
+reward: Purifying Salt
+amount: 99
+
+#Sleep Sprout
+type: Fungus
+requirement: 5
+cost: 8000
+reward: Healing Spring
+amount: 99
+
+#Bomb King
+type: Bomb
+requirement: 5
+cost: 8000
+reward: Turbo Ether
+amount: 60
+
+#Juggernaut
+type: Ruminant
+requirement: 5
+cost: 8000
+reward: Light Curtain
+amount: 99
+
+#IronClad
+type: Iron Giant
+requirement: 10
+cost: 8000
+reward: Mana Tablet
+amount: 60

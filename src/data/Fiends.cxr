@@ -1,0 +1,552 @@
+#Achelous
+type: Underwater
+area: Mt. Gagazet
+cost: 630
+note: Appears in underwater sections
+
+#Adamantoise
+type: Miscellaneous
+area: Inside Sin
+found: Omega Ruins
+cost: 3300
+
+#Aerouge
+type: Imp
+area: Thunder Plains
+cost: 216
+
+#Ahriman
+type: Evil Eye
+area: Mt. Gagazet
+found: Zanarkand Ruins
+cost: 975
+
+#Alcyone
+type: Bird
+area: Bikanel
+cost: 360
+
+#Anacondaur
+type: Miscellaneous
+area: Calm Lands
+cost: 1125
+note: Appears more often in the northwest
+
+#Bandersnatch
+type: Lupine
+area: Mt. Gagazet
+cost: 1320
+
+#Barbatos
+type: Miscellaneous
+area: Inside Sin
+cost: 2325
+note: Appears only in City of the Dead (Entrance)
+
+#Bashura
+type: Miscellaneous
+area: Mt. Gagazet
+area: Zanarkand Ruins
+cost: 1095
+
+#Basilisk
+type: Miscellaneous
+area: Djose Road
+cost: 187
+note: Generally appears on road leading away from Battle Site
+
+#Behemoth
+type: Miscellaneous
+area: Mt. Gagazet
+found: Zanarkand Ruins
+cost: 2025
+
+#Behemoth King
+type: Miscellaneous
+area: Inside Sin
+cost: 2775
+
+#Bite Bug
+type: Wasp
+area: Djose Road
+cost: 93
+
+#Black Element
+type: Elemental
+area: Omega Ruins
+cost: 1560
+
+#Blue Element
+type: Elemental
+area: Macalania
+cost: 270
+note: Appears in forest section
+
+#Bomb
+type: Bomb
+area: Mi'ihen Highroad
+cost: 105
+
+#Buer
+type: Evil Eye
+area: Thunder Plains
+cost: 198
+
+#Bunyip
+type: Helm
+area: Djose Road
+cost: 145
+
+#Cactuar
+type: Miscellaneous
+area: Thunder Plains
+cost: 400
+note: Appears more frequently after praying at Qactuar stones
+
+#Chimera
+type: Miscellaneous
+area: Macalania
+cost: 1455
+note: Appears in forest section
+
+#Chimera Brain
+type: Miscellaneous
+area: Calm Lands
+cost: 1500
+
+#Coeurl
+type: Miscellaneous
+area: Calm Lands
+cost: 1650
+
+#Condor
+type: Bird
+area: Besaid
+cost: 18
+
+#Dark Element
+type: Elemental
+area: Sunken Cave
+cost: 780
+
+#Dark Flan
+type: Flan
+area: Mt. Gagazet
+found: Zanarkand Ruins
+cost: 1620
+
+#Demonolith
+type: Miscellaneous
+area: Inside Sin
+found: Omega Ruins
+cost: 2205
+note: Inside Sin, appears only in City of the Dead (Entrance)
+
+#Dingo
+type: Lupine
+area: Besaid
+cost: 24
+
+#Dinonix
+type: Reptile
+area: Kilika
+cost: 40
+
+#Dual Horn
+type: Ruminant
+area: Mi'ihen Highroad
+cost: 157
+
+#Epaaj
+type: Miscellaneous
+area: Sunken Cave
+cost: 1425
+
+#Evil Eye
+type: Evil Eye
+area: Macalania
+cost: 307
+note: Appears in lake section
+
+#Exoray
+type: Fungus
+area: Inside Sin
+cost: 1260
+
+#Flame Flan
+type: Flan
+area: Calm Lands
+cost: 672
+
+#Floating Death
+type: Evil Eye
+area: Omega Ruins
+cost: 1897
+
+#Floating Eye
+type: Evil Eye
+area: Mi'ihen Highroad
+cost: 66
+
+#Funguar
+type: Fungus
+area: Mushroom Rock Road
+cost: 63
+
+#Gandarewa
+type: Imp
+area: Mushroom Rock Road
+cost: 93
+
+#Garm
+type: Lupine
+area: Djose Road
+cost: 132
+
+#Garuda
+type: Miscellaneous
+area: Mushroom Rock Road
+cost: 210
+
+#Gemini Blue
+type: Iron Giant
+area: Inside Sin
+found: Omega Ruins
+cost: 1666
+note: Carries a sword
+note: Appears in pair with Gemini Red
+
+#Gemini Red
+type: Iron Giant
+area: Inside Sin
+found: Omega Ruins
+cost: 1666
+note: Carries a club
+note: Appears in pair with Gemini Blue
+
+#Ghost
+type: Miscellaneous
+area: Sunken Cave
+cost: 1215
+
+#Gold Element
+type: Elemental
+area: Thunder Plains
+cost: 160
+
+#Grat
+type: Miscellaneous
+area: Mt. Gagazet
+cost: 780
+
+#Great Malboro
+type: Miscellaneous
+area: Inside Sin
+found: Omega Ruins
+cost: 2250
+note: Inside Sin only appears in City of the Dead (Entrance)
+
+#Grenade
+type: Bomb
+area: Mt. Gagazet
+cost: 810
+
+#Grendel
+type: Ruminant
+area: Mt. Gagazet
+cost: 1095
+
+#Halma
+type: Helm
+area: Omega Ruins
+cost: 1545
+
+#Ice Flan
+type: Flan
+area: Macalania
+cost: 282
+note: Appears in lake section
+
+#Iguion
+type: Reptile
+area: Macalania
+cost: 207
+note: Appears in forest section
+
+#Imp
+type: Imp
+area: Sunken Cave
+found: Mt. Gagazet
+cost: 915
+
+#Ipiria
+type: Reptile
+area: Mi'ihen Highroad
+cost: 69
+note: Generally only appears along the Oldroad
+
+#Iron Giant
+type: Iron Giant
+area: Thunder Plains
+cost: 900
+note: Only appears in nothern section of the plains
+
+#Killer Bee
+type: Wasp
+area: Kilika
+cost: 34
+
+#Kusariqqu
+type: Drake
+area: Thunder Plains
+cost: 168
+
+#Lamashtu
+type: Ruminant
+area: Mushroom Rock Road
+cost: 108
+
+#Larva
+type: Miscellaneous
+area: Thunder Plains
+cost: 495
+
+#Machea
+type: Miscellaneous
+area: Omega Ruins
+cost: 2175
+
+#Maelspike
+type: Underwater
+area: Mt. Gagazet
+cost: 495
+note: Appears in underwater sections
+
+#Mafdet
+type: Helm
+area: Macalania
+cost: 258
+note: Appears in lake section
+
+#Malboro
+type: Miscellaneous
+area: Calm Lands
+cost: 1650
+note: Appears more often in the northwest
+
+#Mandragora
+type: Miscellaneous
+area: Mt. Gagazet
+found: Zanarkand Ruins
+cost: 1800
+
+#Master Coeurl
+type: Miscellaneous
+area: Omega Ruins
+cost: 3045
+
+#Master Tonberry
+type: Miscellaneous
+area: Omega Ruins
+cost: 3600
+
+#Melusine
+type: Reptile
+area: Thunder Plains
+cost: 162
+
+#Mi'ihen Fang
+type: Lupine
+area: Mi'ihen Highroad
+cost: 49
+
+#Murussu
+type: Helm
+area: Macalania
+cost: 247
+note: Appears in forest section
+
+#Mushussu
+type: Drake
+area: Bikanel
+cost: 405
+
+#Nebiros
+type: Wasp
+area: Calm Lands
+cost: 480
+
+#Nidhogg
+type: Drake
+area: Sunken Cave
+area: Mt. Gagazet
+cost: 903
+
+#Ochu
+type: Miscellaneous
+area: Djose Road
+cost: 780
+note: Only appears along road between fork and the Moonflow
+note: Most easily found on the first road leading to Moonflow, just before the exit to the next area.
+
+#Ogre
+type: Miscellaneous
+area: Calm Lands
+cost: 1470
+note: Appears more often in the northwest
+
+#Puroboros
+type: Bomb
+area: Omega Ruins
+cost: 1455
+
+#Ragora
+type: Miscellaneous
+area: Kilika
+cost: 72
+
+#Raldo
+type: Helm
+area: Mi'ihen Highroad
+cost: 63
+
+#Raptor
+type: Reptile
+area: Mushroom Rock Road
+cost: 72
+
+#Red Element
+type: Elemental
+area: Mushroom Rock Road
+cost: 82
+
+#Sand Wolf
+type: Lupine
+area: Bikanel
+cost: 337
+
+#Sand Worm
+type: Miscellaneous
+area: Bikanel
+cost: 1500
+note: Appears more often in Sanubia Desert
+
+#Shred
+type: Helm
+area: Calm Lands
+cost: 552
+
+#Simurgh
+type: Bird
+area: Djose Road
+cost: 109
+note: Generally appears on road leading away from Battle Site
+
+#Skoll
+type: Lupine
+area: Calm Lands
+cost: 630
+
+#Snow Flan
+type: Flan
+area: Djose Road
+cost: 139
+
+#Snow Wolf
+type: Lupine
+area: Macalania
+cost: 288
+note: Appears in lake section
+
+#Spirit
+type: Miscellaneous
+area: Omega Ruins
+cost: 1950
+
+#Splasher
+type: Underwater
+area: Mt. Gagazet
+cost: 300
+note: Appears in underwater sections
+
+#Thorn
+type: Fungus
+area: Sunken Cave
+cost: 795
+
+#Thunder Flan
+type: Flan
+area: Mushroom Rock Road
+cost: 75
+note: Also appears on Oldroad
+
+#Tonberry
+type: Miscellaneous
+area: Sunken Cave
+cost: 3000
+note: High encounter rate in green room before Chamber of the Fayth
+note: Small area off minimap in Megalixir room with high encounter rate
+
+#Valaha
+type: Ruminant
+area: Sunken Cave
+cost: 1080
+
+#Varuna
+type: Miscellaneous
+area: Omega Ruins
+cost: 2670
+
+#Vouivre
+type: Drake
+area: Mi'ihen Highroad
+cost: 90
+
+#Wasp
+type: Wasp
+area: Macalania
+cost: 213
+note: Appears in forest section
+
+#Water Flan
+type: Flan
+area: Besaid
+cost: 27
+
+#White Element
+type: Elemental
+area: Mi'ihen Highroad
+cost: 72
+
+#Wraith
+type: Miscellaneous
+area: Inside Sin
+found: Omega Ruins
+cost: 1605
+
+#Xiphos
+type: Miscellaneous
+area: Macalania
+cost: 330
+note: Appears in forest section
+
+#Yellow Element
+type: Elemental
+area: Kilika
+cost: 49
+
+#Yowie
+type: Reptile
+area: Sunken Cave
+cost: 720
+
+#Zaurus
+type: Reptile
+area: Omega Ruins
+cost: 1425
+
+#Zu
+type: Miscellaneous
+area: Bikanel
+cost: 1800
+note: Appears more often in Sanubia Desert

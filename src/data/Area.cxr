@@ -1,0 +1,77 @@
+#Abbadon
+area: Inside Sin
+cost: 6000
+reward: Lunar Curtain
+amount: 99
+
+#Abyss Worm
+area: Bikanel
+cost: 6000
+reward: Shadow Gem
+amount: 99
+
+#Cactuar King
+area: Thunder Plains
+cost: 6000
+reward: Chocobo Wing
+amount: 99
+
+#Catoblepas
+area: Mt. Gagazet
+cost: 6000
+reward: Blossom Crown
+amount: 1
+
+#Chimerageist
+area: Calm Lands
+cost: 6000
+reward: Farplane Wind
+amount: 60
+
+#Coeurlregina
+area: Mushroom Rock Road
+cost: 6000
+reward: Candle of Life
+amount: 99
+
+#Don Tonberry
+area: Sunken Cave
+cost: 8000
+reward: Silver Hourglass
+amount: 40
+
+#Espada
+area: Macalania
+cost: 6000
+reward: Shining Gem
+amount: 60
+
+#Jormungand
+area: Djose Road
+cost: 6000
+reward: Petrify Grenade
+amount: 99
+
+#Kottos
+area: Mi'ihen Highroad
+cost: 6000
+reward: Soul Spring
+amount: 99
+
+#Malboro Menace
+area: Kilika
+cost: 6000
+reward: Poison Fang
+amount: 99
+
+#Stratoavis
+area: Besaid
+cost: 6000
+reward: Stamina Tonic
+amount: 99
+
+#Vorban
+area: Omega Ruins
+cost: 6000
+reward: Designer Wallet
+amount: 60
