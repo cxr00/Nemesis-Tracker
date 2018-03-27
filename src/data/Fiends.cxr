@@ -18,7 +18,6 @@ cost: 216
 #Ahriman
 type: Evil Eye
 area: Mt. Gagazet
-found: Zanarkand Ruins
 cost: 975
 
 #Alcyone
@@ -46,7 +45,6 @@ note: Appears only in City of the Dead (Entrance)
 #Bashura
 type: Miscellaneous
 area: Mt. Gagazet
-area: Zanarkand Ruins
 cost: 1095
 
 #Basilisk
@@ -58,7 +56,6 @@ note: Generally appears on road leading away from Battle Site
 #Behemoth
 type: Miscellaneous
 area: Mt. Gagazet
-found: Zanarkand Ruins
 cost: 2025
 
 #Behemoth King
@@ -99,9 +96,8 @@ cost: 145
 
 #Cactuar
 type: Miscellaneous
-area: Thunder Plains
+area: Bikanel
 cost: 400
-note: Appears more frequently after praying at Qactuar stones
 
 #Chimera
 type: Miscellaneous
@@ -132,7 +128,6 @@ cost: 780
 #Dark Flan
 type: Flan
 area: Mt. Gagazet
-found: Zanarkand Ruins
 cost: 1620
 
 #Demonolith
@@ -208,21 +203,17 @@ type: Miscellaneous
 area: Mushroom Rock Road
 cost: 210
 
-#Gemini Blue
+#Gemini (Club)
 type: Iron Giant
 area: Inside Sin
 found: Omega Ruins
 cost: 1666
-note: Carries a sword
-note: Appears in pair with Gemini Red
 
-#Gemini Red
+#Gemini (Sword)
 type: Iron Giant
 area: Inside Sin
 found: Omega Ruins
 cost: 1666
-note: Carries a club
-note: Appears in pair with Gemini Blue
 
 #Ghost
 type: Miscellaneous
@@ -337,7 +328,6 @@ note: Appears more often in the northwest
 #Mandragora
 type: Miscellaneous
 area: Mt. Gagazet
-found: Zanarkand Ruins
 cost: 1800
 
 #Master Coeurl
@@ -399,6 +389,11 @@ note: Appears more often in the northwest
 type: Bomb
 area: Omega Ruins
 cost: 1455
+
+#Qactuar
+type: Miscellaneous
+area: Thunder Plains
+cost: 4000
 
 #Ragora
 type: Miscellaneous

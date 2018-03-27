@@ -89,7 +89,7 @@ cost: 8000
 reward: Light Curtain
 amount: 99
 
-#IronClad
+#Ironclad
 type: Iron Giant
 requirement: 10
 cost: 8000

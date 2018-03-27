@@ -19,7 +19,7 @@ import cxr.cooid.canon.Property;
 import cxr.cooid.canon.Thing;
 
 
-public class SaveData extends Bill {
+public class SaveData extends Bill{
 	
 	public static final String ext = ".cxr";
 	public static final int len = ext.length();
@@ -29,13 +29,13 @@ public class SaveData extends Bill {
 	
 	public static final String appData = System.getenv("localappdata") + fileSep + "Nemesis-Tracker.cxr";
 	
-	public static String ac = "Area Conquest";
-	public static String ac_f = "Area";
+	public static String ac = "Area Conquest Unlocked";
+	public static String ac_f = "Area Conquest";
 	public static String f = "Fiend";
-	public static String o = "Original Unlocked";
-	public static String o_f = "Original";
-	public static String sc = "Species Conquest";
-	public static String sc_f = "Species";
+	public static String o = "Original Creation Unlocked";
+	public static String o_f = "Original Creations";
+	public static String sc = "Species Conquest Unlocked";
+	public static String sc_f = "Species Conquest";
 	
 	public static final SaveData instance = loadSaveData();
 	public static Bill template;
@@ -43,6 +43,18 @@ public class SaveData extends Bill {
 	public static Bill area;
 	public static Bill species;
 	public static Bill original;
+	public static Bill nemesis;
+	
+	public static Bill getCXR(String type){
+		switch(type){
+		case "Fiend": return fiends;
+		case "Area Conquest": return area;
+		case "Species Conquest": return species;
+		case "Original Creations": return original;
+		case "Nemesis": return nemesis;
+		default: return null;
+		}
+	}
 	
 	private SaveData() {
 		super("SaveData", getSave());
@@ -67,17 +79,17 @@ public class SaveData extends Bill {
 			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
 			fiends = Bill.parse("Fiends", pList);
 		
-			resource = SaveData.class.getResource(resourcePath + "Area.cxr");
+			resource = SaveData.class.getResource(resourcePath + "Area Conquest.cxr");
 			is = resource.openStream();
 			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
 			area = Bill.parse("Area", pList);
 			
-			resource = SaveData.class.getResource(resourcePath + "Species.cxr");
+			resource = SaveData.class.getResource(resourcePath + "Species Conquest.cxr");
 			is = resource.openStream();
 			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
 			species= Bill.parse("Species", pList);
 			
-			resource = SaveData.class.getResource(resourcePath + "Original.cxr");
+			resource = SaveData.class.getResource(resourcePath + "Original Creations.cxr");
 			is = resource.openStream();
 			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
 			original = Bill.parse("Original", pList);
@@ -86,6 +98,11 @@ public class SaveData extends Bill {
 			is = resource.openStream();
 			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
 			template = Bill.parse("Template", pList);
+			
+			resource = SaveData.class.getResource(resourcePath + "Nemesis.cxr");
+			is = resource.openStream();
+			pList = Arrays.asList(IOUtils.toString(is, StandardCharsets.UTF_8).split("\n"));
+			nemesis = Bill.parse("Nemesis", pList);
 			
 			return new SaveData();
 		}catch(IOException ioe){ioe.printStackTrace(); return null; }
@@ -210,11 +227,14 @@ public class SaveData extends Bill {
 	// Tally for SVP and internal calculation
 	public int numAreaFiendsDefeated(){
 		int out = 0;
-		for(Property p : get(ac_f)){ if(!p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
+		for(Property p : get(ac_f)){ if(p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allAreaConquestFiendsDefeated(){ return numAreaFiendsDefeated() == area.size(); }
+	public boolean allAreaConquestFiendsDefeated(){
+		int out = numAreaFiendsDefeated();
+		System.out.println("AreaConquestFiendsDefeated: " + out);
+		return out == area.size(); }
 	
 	/* ****************** *
 	 * ORIGINAL CREATIONS * 
@@ -229,7 +249,6 @@ public class SaveData extends Bill {
 		case "area": return numAreasConquered() >= Integer.parseInt(orig.get("requirement").val());
 		case "species": return numSpeciesConquered() >= Integer.parseInt(orig.get("requirement").val());
 		case "underwater": return speciesIsConquered("Underwater", 2);
-		case "nemesis": return unlockedNemesis();
 		default: return false;
 		} }
 	
@@ -238,11 +257,14 @@ public class SaveData extends Bill {
 	// For SVP and internal calculations
 	public int numOriginalFiendsDefeated(){
 		int out = 0;
-		for(Property p : get(o_f)){ if(!p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
+		for(Property p : get(o_f)){ if(p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allOriginalFiendsDefeated(){ return numOriginalFiendsDefeated() == original.size(); }
+	public boolean allOriginalFiendsDefeated(){
+		int out = numOriginalFiendsDefeated();
+		System.out.println("OriginalCreationsDefeated: " + out);
+		return out == original.size(); }
 	
 	/* **************** *
 	 * SPECIES CONQUEST *
@@ -279,11 +301,14 @@ public class SaveData extends Bill {
 	// Tally for SVP and internal calculation
 	public int numSpeciesFiendsDefeated(){
 		int out = 0;
-		for(Property p : get(sc_f)){ if(!p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
+		for(Property p : get(sc_f)){ if(p.val().equals("1")){ out += Integer.parseInt(p.val()); } }
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allSpeciesConquestFiendsDefeated(){ return numSpeciesFiendsDefeated() == species.size(); }
+	public boolean allSpeciesConquestFiendsDefeated(){
+		int out = numSpeciesFiendsDefeated();
+		System.out.println("SpeciesConquestFiendsDefeated: " + out);
+		return out == species.size(); }
 	
 	
 	/* ******* *
@@ -297,15 +322,20 @@ public class SaveData extends Bill {
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allFiendsMaxCaptured(){ return numFiendsMaxCaptured() == fiends.size(); }
+	public boolean allFiendsMaxCaptured(){
+		int out = numFiendsMaxCaptured();
+		System.out.println("Fiends Max Captured: " + out);
+		return out == fiends.size(); }
 	
 	// Did you do it all?
 	public boolean unlockedNemesis(){
-		return allFiendsMaxCaptured() && allAreaConquestFiendsDefeated()
-		 && allSpeciesConquestFiendsDefeated() && allOriginalFiendsDefeated();
+		boolean a = allFiendsMaxCaptured();
+		boolean b = allAreaConquestFiendsDefeated();
+		boolean c = allSpeciesConquestFiendsDefeated();
+		boolean d = allOriginalFiendsDefeated();
+		System.out.println();
+		return a && b && c && d;
 	}
 	
-	public static void main(String[] args){
-		
-	}
+	public void toggleNemesis(int o){ get("Nemesis").get(0).setVal(String.valueOf(o)); }
 }

@@ -38,8 +38,8 @@ Funguar: 0
 Gandarewa: 0
 Garm: 0
 Garuda: 0
-Gemini Blue: 0
-Gemini Red: 0
+Gemini (Club): 0
+Gemini (Sword): 0
 Ghost: 0
 Gold Element: 0
 Grat: 0
@@ -72,6 +72,7 @@ Nidhogg: 0
 Ochu: 0
 Ogre: 0
 Puroboros: 0
+Qactuar: 0
 Ragora: 0
 Raldo: 0
 Raptor: 0
@@ -101,7 +102,7 @@ Yowie: 0
 Zaurus: 0
 Zu: 0
 
-#Area Conquest
+#Area Conquest Unlocked
 Besaid: 0
 Kilika: 0
 Mi'ihen Highroad: 0
@@ -116,8 +117,8 @@ Mt. Gagazet: 0
 Inside Sin: 0
 Omega Ruins: 0
 
-#Area
-Abbadon: 0
+#Area Conquest
+Abaddon: 0
 Abyss Worm: 0
 Cactuar King: 0
 Catoblepas: 0
@@ -131,7 +132,7 @@ Malboro Menace: 0
 Stratoavis: 0
 Vorban: 0
 
-#Species Conquest
+#Species Conquest Unlocked
 Bird: 0
 Bomb: 0
 Drake: 0
@@ -147,12 +148,12 @@ Reptile: 0
 Ruminant: 0
 Wasp: 0
 
-#Species
+#Species Conquest
 Bomb King: 0
 Fafnir: 0
 Fenrir: 0
 Hornet: 0
-IronClad: 0
+Ironclad: 0
 Juggernaut: 0
 Jumbo Flan: 0
 Nega Elemental: 0
@@ -163,7 +164,7 @@ Sleep Sprout: 0
 Tanket: 0
 Vidatu: 0
 
-#Original Unlocked
+#Original Creation Unlocked
 Catastrophe: 0
 Earth Eater: 0
 Greater Sphere: 0
@@ -173,7 +174,7 @@ Th'uban: 0
 Ultima Buster: 0
 Nemesis: 0
 
-#Original
+#Original Creations
 Catastrophe: 0
 Earth Eater: 0
 Greater Sphere: 0
@@ -181,3 +182,6 @@ Neslug: 0
 Shinryu: 0
 Th'uban: 0
 Ultima Buster: 0
+
+#Nemesis
+Nemesis: 0
