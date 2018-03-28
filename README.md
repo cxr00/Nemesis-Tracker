@@ -22,4 +22,4 @@ A streamlined objective tracker for Nemesis% speedruns in Final Fantasy X
 
 ## Got Feedback?
 
-If you hacve any problems, questions, or suggestions for new features, let me know on [Twitter](https://www.twitter.com/the_complexor)! And if you'd like to support this and other game community projects like this, check out my [Patreon page](https://www.patreon.com/complexor)!
+If you have any problems, questions, or suggestions for new features, let me know on [Twitter](https://www.twitter.com/the_complexor)! And if you'd like to support this and other game community projects like this, check out my [Patreon page](https://www.patreon.com/complexor)!
