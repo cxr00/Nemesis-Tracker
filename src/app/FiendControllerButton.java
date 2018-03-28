@@ -53,25 +53,10 @@ public class FiendControllerButton extends JButton implements ActionListener {
 					}
 				}
 				break;
-			default: source.setText(source.name + progress());
+			case "Joint Call": source.setText(source.name + source.progress()); break;
 			}
 			source.repaint();
 		}
-		
-		private String progress(){
-			if(source.type.equals("Fiend")){
-				if(data.get(source.type).get(source.name).val().equals("10")){ 
-					source.setBackground(Color.DARK_GRAY);
-					return " (DONE)"; }
-				else{
-					source.setBackground(BUTTON_COLOR);
-					return " (" + data.get("Fiend").get(source.name).val() + " / 10" + ")"; } }
-			else if(data.get(source.type).get(source.name).val().equals("1")){
-				source.setBackground(Color.DARK_GRAY);
-				return " (DONE)"; }
-			return "";
-		}
-		
 	}
 	
 	public static class FCBListener implements MouseListener{
@@ -83,7 +68,7 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		public FCBListener(SaveData data, FiendControllerButton source){
 			this.data = data;
 			this.source = source;
-			source.setText(source.name + " " + progress());
+			source.setText(source.name + " " + source.progress());
 		}
 
 		@Override
@@ -108,32 +93,14 @@ public class FiendControllerButton extends JButton implements ActionListener {
 					data.toggleNemesis(o);
 					break;
 				}
-				source.setText(source.name + " " + progress());
+				source.setText(source.name + " " + source.progress());
 				source.repaint();
 			}
 			source.fireActionPerformed(new ActionEvent(source, ActionEvent.ACTION_PERFORMED, "Joint Call"));
 		}
 
-		@Override public void mouseEntered(MouseEvent m) {
-		}
-		@Override public void mouseExited(MouseEvent m) {
-		}
-		
-		private String progress(){
-			if(source.type.equals("Fiend")){
-				if(data.get(source.type).get(source.name).val().equals("10")){
-					source.setBackground(Color.DARK_GRAY);
-					return " (DONE)"; }
-				else{
-					source.setBackground(BUTTON_COLOR);
-					return " (" + data.get("Fiend").get(source.name).val() + " / 10" + ")"; } }
-			else if(data.get(source.type).get(source.name).val().equals("1")){
-				source.setBackground(Color.DARK_GRAY);
-				return " (DONE)"; }
-			source.setBackground(BUTTON_COLOR);
-			return "";
-		}
-		
+		@Override public void mouseEntered(MouseEvent m) {}
+		@Override public void mouseExited(MouseEvent m) {}
 		@Override public void mousePressed(MouseEvent m) {}
 		@Override public void mouseReleased(MouseEvent m) {}
 	}
@@ -184,15 +151,12 @@ public class FiendControllerButton extends JButton implements ActionListener {
 	private String progress(){
 		if(type.equals("Fiend")){
 			if(data.get(type).get(name).val().equals("10")){
-				setBackground(Color.DARK_GRAY);
-				return " (DONE)"; }
+				setBackground(Color.GRAY);}
 			else{
-				setBackground(BUTTON_COLOR);
-				return " (" + data.get("Fiend").get(name).val() + " / 10" + ")"; } }
-		else if(data.get(type).get(name).val().equals("1")){
-			setBackground(Color.DARK_GRAY);
-			return " (DONE)"; }
-		setBackground(BUTTON_COLOR);
+				setBackground(BUTTON_COLOR);}
+			return " (" + data.get("Fiend").get(name).val() + " / 10" + ")"; }
+		else if(data.get(type).get(name).val().equals("1")){ setBackground(Color.GRAY);}
+		else{ setBackground(BUTTON_COLOR); }
 		return "";
 	}
 	

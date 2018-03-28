@@ -37,7 +37,7 @@ public class SaveData extends Bill{
 	public static String sc = "Species Conquest Unlocked";
 	public static String sc_f = "Species Conquest";
 	
-	public static final SaveData instance = loadSaveData();
+	public static SaveData instance = loadSaveData();
 	public static Bill template;
 	public static Bill fiends;
 	public static Bill area;
@@ -64,6 +64,11 @@ public class SaveData extends Bill{
 	/* ***************** *
 	 * SAVE/LOAD METHODS *
 	 * ***************** */
+	
+	public static void clearSaveData(){
+		new File(appData + fileSep + instance.tag() + ext).delete();
+		instance = new SaveData();
+	}
 	
 	private static SaveData loadSaveData(){
 		File f = new File(appData);

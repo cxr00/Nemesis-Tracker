@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
@@ -26,6 +25,9 @@ public class NemesisTracker extends JFrame implements ActionListener{
 	private JPanel nemesisTab;
 	private JTabbedPane fiendPane;
 	
+	private static int win_x = 604;
+	private static int win_y = 460;
+	
 	public NemesisTracker(){
 		super("Nemesis Tracker 0.1 by Conrad @The_Complexor");
 		try {
@@ -40,10 +42,9 @@ public class NemesisTracker extends JFrame implements ActionListener{
 		jtp = constructJTP();
 		setContentPane(jtp);
 		
-		this.setJMenuBar(new TrackerMenu(SaveData.instance));
+		this.setJMenuBar(new TrackerMenu(SaveData.instance, this));
 		
 		pack();
-		setSize(740, 430);
 		setResizable(false);
 		setVisible(true);
 	}
@@ -86,19 +87,20 @@ public class NemesisTracker extends JFrame implements ActionListener{
 							fcb2.addActionListener(new JointFCBListener(SaveData.instance, fcb));
 						}
 					}
-					int offset = 6;
+					int offset = 0;
 					for(int i = 0; i < fiendPaneSize; i++){ fiendPane.addTab(ac.get((i+offset)%fiendPaneSize).tag(), jps[(i+offset)%fiendPaneSize]); }
-					fiendPane.setSelectedIndex(offset+1);
+					fiendPane.setSelectedIndex(offset);
 					jtp.addTab("Fiend", fiendPane);
 				}
 				else if(t.tag().equals("Nemesis")){
 					nemesisTab = new JPanel();
 					nemesisTab.setLayout(new FlowLayout(FlowLayout.CENTER));
 					FiendControllerButton nem = new FiendControllerButton(SaveData.instance, "Nemesis", "Nemesis");
-					nem.setPreferredSize(new Dimension(500, 360));
+					nem.setPreferredSize(new Dimension(380, 320));
 					nem.addActionListener(this);
 					nemesisTab.add(nem);
 					if(SaveData.instance.unlockedNemesis() && nemesisTab.getParent() == null){ jtp.addTab("Nemesis", nemesisTab); }
+					jtp.addTab("Nemesis", nemesisTab);
 				}
 				// All others get their own tab
 				else{
@@ -115,12 +117,25 @@ public class NemesisTracker extends JFrame implements ActionListener{
 		return jtp;
 	}
 	
+	public void refreshJTP(){
+		jtp = constructJTP();
+		setContentPane(jtp);
+		pack();
+		repaint();
+	}
+	
+	public void pack(){
+		super.pack();
+		setSize(win_x, win_y);
+	}
+	
 	@Override public void actionPerformed(ActionEvent ae) {
-		if(SaveData.instance.unlockedNemesis()){
-			if(nemesisTab.getParent() == null){
+		if(nemesisTab.getParent() == null){
+			if(SaveData.instance.unlockedNemesis()){
 				jtp.addTab("Nemesis", nemesisTab); jtp.repaint(); } }
 		else{ jtp.remove(nemesisTab); jtp.repaint(); }
-		this.repaint(); }
+		this.repaint();
+	}
 	
 	public static void main(String[] args){
 		new NemesisTracker();
