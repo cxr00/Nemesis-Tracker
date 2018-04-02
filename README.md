@@ -26,7 +26,7 @@ A streamlined objective tracker for Nemesis% speedruns in Final Fantasy X
 
 To provide a cleaner view for your stream, a secondary "Stream Viewport" window shows a summary of your progress. This is a separate window from the control panel you will use to track objectives. Hopefully this makes it easier to showcase progress to your viewers without the bulky control panel messing with your stream's vibe.
 
-When adding the window to your streaming tool, make sure to select the **Nemesis Tracker Stream Viewport**.
+To add the viewport to your scene, select the **Nemesis Tracker Stream Viewport** window.
 
 ![Above: Stream Viewport; Below: Control Panel](example.jpg?raw=true)
 
