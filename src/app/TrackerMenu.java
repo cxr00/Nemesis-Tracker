@@ -11,10 +11,7 @@ import javax.swing.JOptionPane;
 import data.SaveData;
 
 public class TrackerMenu extends JMenuBar{
-
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 7694750673044468565L;
 	
 	public TrackerMenu(SaveData data, NemesisTracker source){
@@ -65,7 +62,6 @@ public class TrackerMenu extends JMenuBar{
 			}
 		});
 		this.add(clearData);
-		
 	}
 	
 }

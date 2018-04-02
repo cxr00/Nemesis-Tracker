@@ -14,6 +14,7 @@ import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 
+import app.viewport.StreamViewport;
 import cxr.cooid.canon.Bill;
 import cxr.cooid.canon.Property;
 import cxr.cooid.canon.Thing;
@@ -23,6 +24,7 @@ public class SaveData extends Bill{
 	
 	public static final String ext = ".cxr";
 	public static final int len = ext.length();
+	private static final boolean echo = false;
 	
 	public static final String userDir = System.getProperty("user.dir");
 	public static final String fileSep = System.getProperty("file.separator");
@@ -165,35 +167,28 @@ public class SaveData extends Bill{
 	 * MODIFICATION METHODS *
 	 * ******************** */
 	
-	// For increasing the number captured of a particular fiend
-	public void countUpFiend(String name){
+	// Increase or decrease fiend count
+	public void countFiend(String name, int o){
+		// when 0 is passed, change it to -1
+		o = o == 0 ? -1 : o;
 		if(get(f).contains(name)){
 			Property c = get(f).get(name);
 			// Change value
 			int v = Integer.parseInt(c.val());
-			if(v < 10){ c.setVal(String.valueOf(v + 1)); }
+			v = v+o >= 0 && v+o <= 10 ? v+o : v;
+			
+			c.setVal(String.valueOf(v));
 			// Area Conquest
 			String a = fiends.get(name).get("area").val();
-			if(v + 1 == 1 && areaIsConquered(a)) { toggleAreaConquest(a, 1); }
+			if(v == 1 && areaIsConquered(a)) { toggleAreaConquest(a, 1); }
+			else if(v == 0) {toggleAreaConquest(a, 0); }
 			// Species Conquest
 			String s = fiends.get(name).get("type").val();
-			if(v + 1 == 1 && speciesIsConquered(s, 1)) { toggleSpeciesConquest(s, 1); }
-		} backup(); }
-	
-	// Just in case you accidentally count the wrong fiend up, you can count it back down without a problem
-	public void countDownFiend(String name){
-		if(get(f).contains(name)){
-			Property c = get(f).get(name);
-			// Change value
-			int v = Integer.parseInt(c.val());
-			if(v > 0){ c.setVal(String.valueOf(v - 1)); }
-			// Area Conquest
-			String a = fiends.get(name).get("area").val();
-			if(v - 1 == 0) {toggleAreaConquest(a, 0); }
-			// Species Conquest
-			String s = fiends.get(name).get("type").val();
-			if(v - 1 == 0 && !(s.equals("Underwater") || s.equals("Miscellaneous") )) {toggleSpeciesConquest(s, 0); }
-		} backup(); }
+			if(v == 1 && speciesIsConquered(s, 1)) { toggleSpeciesConquest(s, 1); }
+			if(v == 0 && !(s.equals("Underwater") || s.equals("Miscellaneous") )) {toggleSpeciesConquest(s, 0); }
+		}
+		backup();
+	}
 	
 	// Turn unlocks and fiend completion on and off.
 	public void toggleAreaConquest(String area, int n){ get(ac).get(area).setVal(String.valueOf(n)); backup(); }
@@ -236,9 +231,10 @@ public class SaveData extends Bill{
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allAreaConquestFiendsDefeated(){
+	public boolean allAreaConquestFiendsDefeated(Thing info){
 		int out = numAreaFiendsDefeated();
-		System.out.println("AreaConquestFiendsDefeated: " + out);
+		if(echo) {System.out.println("Area: " + out);}
+		info.add(new Property("Area", String.valueOf(out)));
 		return out == area.size(); }
 	
 	/* ****************** *
@@ -266,9 +262,10 @@ public class SaveData extends Bill{
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allOriginalFiendsDefeated(){
+	public boolean allOriginalFiendsDefeated(Thing info){
 		int out = numOriginalFiendsDefeated();
-		System.out.println("OriginalCreationsDefeated: " + out);
+		if(echo) {System.out.println("OriginalCreationsDefeated: " + out);}
+		info.add(new Property("Original", String.valueOf(out)));
 		return out == original.size(); }
 	
 	/* **************** *
@@ -310,9 +307,10 @@ public class SaveData extends Bill{
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allSpeciesConquestFiendsDefeated(){
+	public boolean allSpeciesConquestFiendsDefeated(Thing info){
 		int out = numSpeciesFiendsDefeated();
-		System.out.println("SpeciesConquestFiendsDefeated: " + out);
+		if(echo){System.out.println("SpeciesConquestFiendsDefeated: " + out);}
+		info.add(new Property("Species", String.valueOf(out)));
 		return out == species.size(); }
 	
 	
@@ -327,18 +325,20 @@ public class SaveData extends Bill{
 		return out; }
 	
 	// A condition for unlocking Nemesis
-	public boolean allFiendsMaxCaptured(){
+	public boolean allFiendsMaxCaptured(Thing info){
 		int out = numFiendsMaxCaptured();
-		System.out.println("Fiends Max Captured: " + out);
+		if(echo){System.out.println("Fiend: " + out);}
+		info.add(new Property("Fiend", String.valueOf(out)));
 		return out == fiends.size(); }
 	
 	// Did you do it all?
 	public boolean unlockedNemesis(){
-		boolean a = allFiendsMaxCaptured();
-		boolean b = allAreaConquestFiendsDefeated();
-		boolean c = allSpeciesConquestFiendsDefeated();
-		boolean d = allOriginalFiendsDefeated();
-		System.out.println();
+		Thing info = new Thing("info");
+		boolean a = allFiendsMaxCaptured(info);
+		boolean b = allAreaConquestFiendsDefeated(info);
+		boolean c = allSpeciesConquestFiendsDefeated(info);
+		boolean d = allOriginalFiendsDefeated(info);
+		StreamViewport.instance.updateFiendCount(info);
 		return a && b && c && d;
 	}
 	

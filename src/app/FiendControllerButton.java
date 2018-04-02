@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 
+import app.viewport.StreamViewport;
 import cxr.cooid.canon.Thing;
 import data.SaveData;
 
@@ -68,40 +69,26 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		public FCBListener(SaveData data, FiendControllerButton source){
 			this.data = data;
 			this.source = source;
-			source.setText(source.name + " " + source.progress());
 		}
 
-		@Override
-		public void mouseClicked(MouseEvent m) {
+		@Override public void mouseClicked(MouseEvent m) {}
+		@Override public void mouseEntered(MouseEvent m) {}
+		@Override public void mouseExited(MouseEvent m) {}
+		@Override public void mousePressed(MouseEvent m) {
 			int o = SwingUtilities.isLeftMouseButton(m) ? 1 : SwingUtilities.isRightMouseButton(m) ? 0 : -1;
 			if(o != -1){
 				switch(source.type){
-				case "Fiend":
-					if(o == 1){ data.countUpFiend(source.name); }
-					else{ data.countDownFiend(source.name); }
-					break;
-				case "Area Conquest":
-					data.toggleAreaConquestFiend(source.name, o);
-					break;
-				case "Species Conquest":
-					data.toggleSpeciesConquestFiend(source.name, o);
-					break;
-				case "Original Creations":
-					data.toggleOriginalFiend(source.name, o);
-					break;
-				case "Nemesis":
-					data.toggleNemesis(o);
-					break;
+				case "Fiend": data.countFiend(source.name, o); break;
+				case "Area Conquest": data.toggleAreaConquestFiend(source.name, o); break;
+				case "Species Conquest": data.toggleSpeciesConquestFiend(source.name, o); break;
+				case "Original Creations": data.toggleOriginalFiend(source.name, o); break;
+				case "Nemesis": data.toggleNemesis(o); break;
 				}
 				source.setText(source.name + " " + source.progress());
 				source.repaint();
 			}
 			source.fireActionPerformed(new ActionEvent(source, ActionEvent.ACTION_PERFORMED, "Joint Call"));
 		}
-
-		@Override public void mouseEntered(MouseEvent m) {}
-		@Override public void mouseExited(MouseEvent m) {}
-		@Override public void mousePressed(MouseEvent m) {}
 		@Override public void mouseReleased(MouseEvent m) {}
 	}
 	
@@ -123,10 +110,8 @@ public class FiendControllerButton extends JButton implements ActionListener {
 			InputStream is = resource.openStream();
 			icon = new ImageIcon(ImageIO.read(is));
 			this.setIcon(icon);
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} catch (NullPointerException npe){
-		}
+		} catch (IOException ioe) { ioe.printStackTrace(); }
+		catch (NullPointerException npe){}
 		
 		this.setBackground(BUTTON_COLOR);
 		this.setPreferredSize(new Dimension(175, 19+g));
@@ -137,26 +122,37 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		this.cost = Integer.parseInt(SaveData.getCXR(type).get(name).get("cost").val());
 	}
 	
+	public int cost(){ return cost; }
+	public ImageIcon icon(){ return icon; }
 	public String name(){ return name; }
 	public String type(){ return type; }
-	
-	public int getCost(){ return cost; }
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		updateLabel();
+	}
+	
+	public void updateLabel(){
 		setText(name + " " + progress());
 		repaint();
 	}
 	
 	private String progress(){
 		if(type.equals("Fiend")){
+			String t = " (" + data.get("Fiend").get(name).val() + " / 10" + ")";
 			if(data.get(type).get(name).val().equals("10")){
+				StreamViewport.instance.toggle(name, t, 1);
 				setBackground(Color.GRAY);}
 			else{
+				StreamViewport.instance.toggle(name, t, 0);
 				setBackground(BUTTON_COLOR);}
-			return " (" + data.get("Fiend").get(name).val() + " / 10" + ")"; }
-		else if(data.get(type).get(name).val().equals("1")){ setBackground(Color.GRAY);}
-		else{ setBackground(BUTTON_COLOR); }
+			return t; }
+		else if(data.get(type).get(name).val().equals("1")){
+			StreamViewport.instance.toggle(name, "", 1);
+			setBackground(Color.GRAY); }
+		else{
+			StreamViewport.instance.toggle(name, "", 0);
+			setBackground(BUTTON_COLOR); }
 		return "";
 	}
 	
