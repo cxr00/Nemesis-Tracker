@@ -2,13 +2,15 @@ package app;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
@@ -67,11 +69,14 @@ public class NemesisTracker extends JFrame implements ActionListener{
 					int index2 = sel.getSelectedIndex();
 					FiendTab ft = (FiendTab)sel.getComponent(index2);
 					attache.updateFiendIcons("Fiend", ft.contents());
+					for(FiendControllerButton fcb : ft.contents()){ fcb.updateLabel(); }
 				}
 				else{
 					FiendTab sel = (FiendTab)((JTabbedPane) c.getSource()).getComponent(index);
-					attache.updateFiendIcons(sel.getName(), sel.contents()); }
-				for(FiendControllerButton fcb : all_of_em){ fcb.updateLabel(); }
+					System.out.println(sel.getName());
+					attache.updateFiendIcons(sel.getName(), sel.contents());
+					
+				}
 		}
 		
 	}
@@ -103,8 +108,14 @@ public class NemesisTracker extends JFrame implements ActionListener{
 	
 	public NemesisTracker(){
 		super("Nemesis Tracker 0.1 by Conrad @The_Complexor");
-		try { this.setIconImage(ImageIO.read(new File("C:\\Users\\Josh\\Desktop\\!drawer\\ffx icon.png"))); }
-		catch (IOException e) { e.printStackTrace(); }
+		
+		URL resource = SaveData.class.getResource("/data/cxr.png");
+		try {
+			InputStream is = resource.openStream();
+			Image icon = ImageIO.read(is);
+			this.setIconImage(icon);
+		} catch (IOException ioe) { ioe.printStackTrace(); }
+		catch (NullPointerException npe){}
 
 		setLayout(new FlowLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -190,6 +201,7 @@ public class NemesisTracker extends JFrame implements ActionListener{
 						next.add(fcb);
 						next.setName(t.tag());
 						fcb.addActionListener(this);
+						fcb.updateLabel();
 					}
 					jtp.addTab(t.tag(), next); }
 			}
@@ -201,7 +213,11 @@ public class NemesisTracker extends JFrame implements ActionListener{
 	}
 	
 	public void refreshJTP(){
+		int index = jtp != null ? jtp.getSelectedIndex() : 0;
+		int f_index = fiendPane != null ? fiendPane.getSelectedIndex() : 0;
 		jtp = constructJTP();
+		jtp.setSelectedIndex(index);
+		fiendPane.setSelectedIndex(f_index);
 		setContentPane(jtp);
 		pack();
 		repaint();

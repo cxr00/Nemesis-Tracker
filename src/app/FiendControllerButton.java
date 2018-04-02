@@ -147,6 +147,11 @@ public class FiendControllerButton extends JButton implements ActionListener {
 				StreamViewport.instance.toggle(name, t, 0);
 				setBackground(BUTTON_COLOR);}
 			return t; }
+		else if(type.equals("Nemesis")){
+			StreamViewport.instance.updateFiendIcons("Nemesis", null);
+			StreamViewport.instance.toggle(name, "", 1);
+			setBackground(data.get(type).get(name).val().equals("1") ? Color.GRAY : BUTTON_COLOR);
+		}
 		else if(data.get(type).get(name).val().equals("1")){
 			StreamViewport.instance.toggle(name, "", 1);
 			setBackground(Color.GRAY); }

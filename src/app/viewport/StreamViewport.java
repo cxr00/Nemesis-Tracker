@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -23,6 +24,7 @@ import data.SaveData;
 
 public class StreamViewport extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	private static Color BUTTON_COLOR = new Color(141, 151, 248);
 	
 	public static class FiendSummary{
@@ -47,7 +49,7 @@ public class StreamViewport extends JFrame {
 	}
 	
 	public JLabel fiendCount;
-	private static String f = "Fiend: ";
+	private static String f = "Fiends: ";
 	
 	public JLabel areaCount;
 	private static String a = "Area: ";
@@ -68,7 +70,17 @@ public class StreamViewport extends JFrame {
 	private FiendSummary fs = new FiendSummary();
 	
 	private StreamViewport() {
+		super("Nemesis Tracker Stream Viewport");
 		setLayout(new GridBagLayout());
+		
+		URL resource = SaveData.class.getResource("/data/ffx.png");
+		try {
+			InputStream is = resource.openStream();
+			Image icon = ImageIO.read(is);
+			this.setIconImage(icon);
+		} catch (IOException ioe) { ioe.printStackTrace(); }
+		catch (NullPointerException npe){}
+		
 		summary = new JPanel();
 		summary.setLayout(new GridLayout(5,1));
 		fiendCount = new JLabel(f + SaveData.instance.numFiendsMaxCaptured() + " / " + SaveData.fiends.size());
@@ -128,36 +140,46 @@ public class StreamViewport extends JFrame {
 	}
 	
 	public void updateFiendIcons(String objective, ArrayList<FiendControllerButton> fcblist){
+		setVisible(false);
 		icons.removeAll();
 		ArrayList<String> name_list = new ArrayList<String>();
 		ArrayList<ImageIcon> icon_list = new ArrayList<ImageIcon>();
-		for(FiendControllerButton fcb : fcblist){
-			URL resource = SaveData.class.getResource("/data/ico/" + fcb.name() + ".png");
-			try {
-				InputStream is = resource.openStream();
-				ImageIcon icon = new ImageIcon(ImageIO.read(is));
-				name_list.add(fcb.name());
-				icon_list.add(icon);
-				JLabel to_add = new JLabel(icon);
-				to_add.setBackground(BUTTON_COLOR);
-				to_add.setOpaque(true);
-				if(objective.equals("Fiend") && SaveData.instance.get(objective).get(fcb.name()).val().equals("10")){
-					to_add.setBackground(Color.GRAY);
-					to_add.repaint();
-				}
-				else if(SaveData.instance.get(objective).get(fcb.name()).val().equals("1")){
-					to_add.setBackground(Color.GRAY);
-					to_add.repaint();
-				}
-				icons.add(to_add);
-				icons.validate();
-			} catch (IOException ioe) { ioe.printStackTrace();
-			} catch (NullPointerException npe){}
+		if(objective.equals("Nemesis")){
+			nemesisDown.setText(n + (Integer.valueOf(SaveData.instance.get("Nemesis").get(0).val()) == 1 ? "DEFEATED" : "ALIVE"));
+			nemesisDown.repaint();
 		}
-		fs = new FiendSummary(name_list, icon_list);
-		pack();
+		else{
+			for(FiendControllerButton fcb : fcblist){
+				URL resource = SaveData.class.getResource("/data/ico/" + fcb.name() + ".png");
+				try {
+					InputStream is = resource.openStream();
+					ImageIcon icon = new ImageIcon(ImageIO.read(is));
+					name_list.add(fcb.name());
+					icon_list.add(icon);
+					JLabel to_add = new JLabel(icon);
+					to_add.setBackground(BUTTON_COLOR);
+					to_add.setOpaque(true);
+					String s = SaveData.instance.get(objective).get(fcb.name()).val();
+					if(objective.equals("Fiend") && s.equals("10")){
+						to_add.setBackground(Color.GRAY);
+						to_add.repaint();
+					}
+					else if(s.equals("1")){
+						to_add.setBackground(Color.GRAY);
+						to_add.repaint();
+					}
+					icons.add(to_add);
+					icons.validate();
+				} catch (IOException ioe) { ioe.printStackTrace();
+				} catch (NullPointerException npe){}
+			}
+			fs = new FiendSummary(name_list, icon_list);
+		}
 		icons.repaint();
+		summary.repaint();
+		pack();
 		repaint();
+		setVisible(true);
 	}
 	
 	public void toggle(String name, String label_text, int v){
