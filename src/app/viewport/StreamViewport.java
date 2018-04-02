@@ -49,7 +49,7 @@ public class StreamViewport extends JFrame {
 	}
 	
 	public JLabel fiendCount;
-	private static String f = "Fiends: ";
+	private static String f = "Fiend: ";
 	
 	public JLabel areaCount;
 	private static String a = "Area: ";
@@ -159,16 +159,16 @@ public class StreamViewport extends JFrame {
 					JLabel to_add = new JLabel(icon);
 					to_add.setBackground(BUTTON_COLOR);
 					to_add.setOpaque(true);
+					to_add.setText(FiendControllerButton.progress(objective, fcb.name()));
 					String s = SaveData.instance.get(objective).get(fcb.name()).val();
-					if(objective.equals("Fiend") && s.equals("10")){
-						to_add.setBackground(Color.GRAY);
-						to_add.repaint();
+					if(objective.equals("Fiend")){
+						if(s.equals("10")){ to_add.setBackground(Color.GRAY); }
 					}
 					else if(s.equals("1")){
 						to_add.setBackground(Color.GRAY);
-						to_add.repaint();
 					}
 					icons.add(to_add);
+					
 					icons.validate();
 				} catch (IOException ioe) { ioe.printStackTrace();
 				} catch (NullPointerException npe){}

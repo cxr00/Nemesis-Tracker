@@ -69,7 +69,7 @@ public class NemesisTracker extends JFrame implements ActionListener{
 					int index2 = sel.getSelectedIndex();
 					FiendTab ft = (FiendTab)sel.getComponent(index2);
 					attache.updateFiendIcons("Fiend", ft.contents());
-					for(FiendControllerButton fcb : ft.contents()){ fcb.updateLabel(); }
+					for(FiendControllerButton fcb : all_of_em){ fcb.updateLabel(); }
 				}
 				else{
 					FiendTab sel = (FiendTab)((JTabbedPane) c.getSource()).getComponent(index);
@@ -201,7 +201,7 @@ public class NemesisTracker extends JFrame implements ActionListener{
 						next.add(fcb);
 						next.setName(t.tag());
 						fcb.addActionListener(this);
-						fcb.updateLabel();
+//						fcb.updateLabel();
 					}
 					jtp.addTab(t.tag(), next); }
 			}

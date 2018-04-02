@@ -92,7 +92,7 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		@Override public void mouseReleased(MouseEvent m) {}
 	}
 	
-	private SaveData data;
+	private static SaveData data;
 	private String type;
 	private String name;
 	private int cost;
@@ -101,7 +101,7 @@ public class FiendControllerButton extends JButton implements ActionListener {
 	private static int g = 34;
 	
 	public FiendControllerButton(SaveData data, String type, String name){
-		this.data = data;
+		FiendControllerButton.data = data;
 		this.type = type;
 		this.name = name;
 		
@@ -138,6 +138,7 @@ public class FiendControllerButton extends JButton implements ActionListener {
 	}
 	
 	private String progress(){
+		System.out.println(type);
 		if(type.equals("Fiend")){
 			String t = " (" + data.get("Fiend").get(name).val() + " / 10" + ")";
 			if(data.get(type).get(name).val().equals("10")){
@@ -158,6 +159,11 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		else{
 			StreamViewport.instance.toggle(name, "", 0);
 			setBackground(BUTTON_COLOR); }
+		return "";
+	}
+	
+	public static String progress(String type, String name){
+		if(type.equals("Fiend")){ return " (" + data.get("Fiend").get(name).val() + " / 10" + ")"; }
 		return "";
 	}
 	
