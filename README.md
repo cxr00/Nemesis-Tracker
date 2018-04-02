@@ -28,7 +28,7 @@ To provide a cleaner view for your stream, a secondary "Stream Viewport" window 
 
 When adding the window to your streaming tool, make sure to select the **Nemesis Tracker Stream Viewport**.
 
-[Above: Stream Viewport; Below: Control Panel](example.jpg?raw=true)
+![Above: Stream Viewport; Below: Control Panel](example.jpg?raw=true)
 
 ## Got Feedback?
 
