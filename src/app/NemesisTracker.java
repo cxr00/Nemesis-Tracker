@@ -75,7 +75,6 @@ public class NemesisTracker extends JFrame implements ActionListener{
 				}
 				else{
 					FiendTab sel = (FiendTab)((JTabbedPane) c.getSource()).getComponent(index);
-					System.out.println(sel.getName());
 					attache.updateFiendIcons(sel.getName(), sel.contents());
 					
 				}

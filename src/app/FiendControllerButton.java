@@ -138,7 +138,6 @@ public class FiendControllerButton extends JButton implements ActionListener {
 	}
 	
 	private String progress(){
-		System.out.println(type);
 		if(type.equals("Fiend")){
 			String t = " (" + data.get("Fiend").get(name).val() + " / 10" + ")";
 			if(data.get(type).get(name).val().equals("10")){
