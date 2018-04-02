@@ -30,6 +30,8 @@ public class NemesisTracker extends JFrame implements ActionListener{
 	
 	public static ArrayList<FiendControllerButton> all_of_em;
 	
+	public static String VERSION = "1.2a"; 
+	
 	/** Keeps StreamViewport directly above NemesisTracker control panel */
 	private static class ViewportTie implements ComponentListener{
 
@@ -107,7 +109,7 @@ public class NemesisTracker extends JFrame implements ActionListener{
 	public static final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public NemesisTracker(){
-		super("Nemesis Tracker 0.1 by Conrad @The_Complexor");
+		super("Nemesis Tracker " + VERSION + " by Conrad @The_Complexor");
 		
 		URL resource = SaveData.class.getResource("/data/cxr.png");
 		try {
