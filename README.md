@@ -22,6 +22,14 @@ A streamlined objective tracker for Nemesis% speedruns in Final Fantasy X
 
 * When resetting, use `Reset`. **BE CAREFUL**. This will reset the backup as well, so only use this when you are done with your current run or are starting a new one.
 
+## The Viewport
+
+To provide a cleaner view for your stream, a secondary "Stream Viewport" window shows a summary of your progress. This is a separate window from the control panel you will use to track objectives. Hopefully this makes it easier to showcase progress to your viewers without the bulky control panel messing with your stream's vibe.
+
+When adding the window to your streaming tool, make sure to select the **Nemesis Tracker Stream Viewport**.
+
+[Above: Stream Viewport; Below: Control Panel](example.jpg?raw=true)
+
 ## Got Feedback?
 
 If you have any problems, questions, or suggestions for new features, let me know on [Twitter](https://www.twitter.com/the_complexor)! And if you'd like to support this and other game community projects like this, check out my [Patreon page](https://www.patreon.com/complexor)!
