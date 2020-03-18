@@ -4,7 +4,7 @@ A streamlined objective tracker for Nemesis% speedruns in Final Fantasy X
 
 ## How to run
 
-* Download the [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre9-downloads-3848532.html) from oracle.com
+* Download the [Java Runtime Environment](https://www.java.com/en/download/) from oracle.com
 * [Download the Nemesis Tracker jar](https://github.com/cxr00/Nemesis-Tracker/releases)
 * Double-click to run
 
