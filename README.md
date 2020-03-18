@@ -5,7 +5,7 @@ A streamlined objective tracker for Nemesis% speedruns in Final Fantasy X
 ## How to run
 
 * Download the [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre9-downloads-3848532.html) from oracle.com
-* [Download the Nemesis Tracker jar](https://github.com/jozborn/Nemesis-Tracker/releases)
+* [Download the Nemesis Tracker jar](https://github.com/cxr00/Nemesis-Tracker/releases)
 * Double-click to run
 
 ## Controls
@@ -32,4 +32,4 @@ To add the viewport to your scene, select the **Nemesis Tracker Stream Viewport*
 
 ## Got Feedback?
 
-If you have any problems, questions, or suggestions for new features, let me know on [Twitter](https://www.twitter.com/the_complexor)! And if you'd like to support this and other game community projects like this, check out my [Patreon page](https://www.patreon.com/complexor)!
+If you have any problems, questions, or suggestions for new features, let me know on [Twitter](https://www.twitter.com/corntown101)!
