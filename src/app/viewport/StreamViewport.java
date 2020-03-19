@@ -27,6 +27,8 @@ public class StreamViewport extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private static Color BUTTON_COLOR = new Color(141, 151, 248);
 	
+	public static boolean isVisible = true;
+	
 	public static class FiendSummary{
 
 		public ArrayList<String> name;
@@ -115,7 +117,9 @@ public class StreamViewport extends JFrame {
 		setUndecorated(true);
 		setSize(NemesisTracker.win_x, 150);
 		pack();
-		setVisible(true);
+		if(isVisible){
+			setVisible(true);
+		}
 	}
 	
 	public void updateFiendCount(Thing info){
@@ -179,7 +183,9 @@ public class StreamViewport extends JFrame {
 		summary.repaint();
 		pack();
 		repaint();
-		setVisible(true);
+		if(isVisible){
+			setVisible(true);
+		}
 	}
 	
 	public void toggle(String name, String label_text, int v){

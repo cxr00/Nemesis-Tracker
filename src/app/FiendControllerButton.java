@@ -120,6 +120,7 @@ public class FiendControllerButton extends JButton implements ActionListener {
 		FCBListener fbcl = new FCBListener(data, this);
 		this.addMouseListener(fbcl);
 		this.cost = Integer.parseInt(SaveData.getCXR(type).get(name).get("cost").val());
+		this.initializeLabel();
 	}
 	
 	public int cost(){ return cost; }
@@ -130,6 +131,10 @@ public class FiendControllerButton extends JButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		updateLabel();
+	}
+	
+	public void initializeLabel(){
+		setText(name);
 	}
 	
 	public void updateLabel(){
