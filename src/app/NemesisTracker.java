@@ -128,7 +128,7 @@ public class NemesisTracker extends JFrame implements ActionListener{
 		addComponentListener(new ViewportTie(this, StreamViewport.instance));
 		pack();
 		
-		setResizable(false);
+//		setResizable(false);
 		setVisible(true);
 	}
 	
